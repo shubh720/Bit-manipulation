@@ -1,0 +1,48 @@
+#include<iostream>
+#include<algorithm>
+using namespace std;
+
+int main(){
+ 
+int n;
+cin>>n;
+int arr[100000];
+
+  for(int i=0;i<n;i++){
+      cin>>arr[i];
+  }
+  
+  int x_or = 0;
+
+  // initially xor all as we do
+   for(int i=0;i<n;i++){
+       x_or = x_or ^ arr[i];
+   }
+// x_or contains xor of 2 unique numbers as well
+// find 1 set bit from right side
+  int pos = 0;
+  int temp = x_or;
+ // cout<<x_or<<" ";
+   while((temp&1)!=1){
+       pos++;
+       temp = temp>>1;
+   }  // pos of 1st set bit found
+//cout<<pos<<" ";
+int val=0;
+
+  for(int i=0;i<n;i++){
+      int temp_val = arr[i];
+      temp_val = temp_val >> pos;
+       if((temp_val&1)==1){
+           val = val^arr[i];
+       }
+  } 
+ cout<<val<<" "; 
+ // till here i must have got 1 unique number
+ // original ans was in x_or so;
+  x_or = x_or^val;
+  cout<<x_or<<endl;
+// 2nd unique achieved
+
+ return 0;
+}
