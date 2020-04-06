@@ -1,0 +1,30 @@
+#include<iostream>
+using namespace std;
+
+int main(){
+
+   int x;
+   cin>>x;
+
+     if(x&1) cout<<"odd"<< endl;
+     else cout<<"even"<< endl;
+
+  int val;
+  int i;
+  cin>>val>>i;
+
+    cout<< (val>>i)<< endl;
+    cout<< ((val>>i)&1)<< endl;   // if you want last bit &1 is essential 
+ 
+ // using mask 
+   int mask = (1<<i);  // ab agar 1 jo ith pe rkha hai matches 1 if present the o/p 1 else 0
+   int bit = (val&mask) > 0? 1:0;
+   cout<< bit <<endl;
+
+ // set means if 0-->1 ,if 1-->1 same   
+   // mask already created
+   int bits = val | mask;
+   cout<< bits << endl;
+
+  return 0;
+}
