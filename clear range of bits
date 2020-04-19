@@ -1,0 +1,20 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+
+ int n;
+ cin>>n;
+ int j,i;
+ cin>> j >> i;
+
+  int a = (~0);
+  a = a >> j+1;
+  a = a << j+1;  // case 1
+
+  int b = (1 << i) - 1;
+  int mask = a|b;
+
+  cout<< (n&mask) <<endl;    
+   
+}
